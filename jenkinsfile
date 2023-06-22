@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    tools {
+        nodejs "20.3.0"
+    }
+
     stages {
         stage('Build') {
             steps {
@@ -10,6 +14,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
+                node version
             }
         }
         stage('Deploy') {
