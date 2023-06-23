@@ -49,10 +49,6 @@ class Navigator(webdriver.Remote, By):
 
         for action in routine:
 
-            # print(action["action"])
-            # print(action["target"])
-            # print(action["value"])
-
             xpath = action["target"]
             self.selectElementByXPATH(xpath)
             match action["action"]:
@@ -77,12 +73,6 @@ raw = newData["tests"][0]["commands"]
 cleanup = Routine(raw).routine
 
 target_url = 'https://id-panel-stage.agros.tech/'
-
-# nav = Navigator(webdriver_url, options=drivers[1])
-# nav.implicitly_wait(15)
-# nav.initSession(target_url)
-# nav.executeRoutine(cleanup)
-# nav.quit()
 
 for driver in drivers:
     nav = Navigator(webdriver_url, options=driver)
