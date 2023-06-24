@@ -1,0 +1,192 @@
+{
+  "id": "7f822d8b-5365-4400-b0f6-834982e7dca7",
+  "version": "2.0",
+  "name": "CrearProductoresAGROS",
+  "url": "https://id-panel-stage.agros.tech",
+  "tests": [{
+    "id": "444f950e-7675-4a9f-b734-157e7ac7860f",
+    "name": "Untitled",
+    "commands": [{
+      "id": "cf69ef8b-44a6-4d05-bf40-d9c0b056b5f6",
+      "comment": "",
+      "command": "type",
+      "target": "xpath=//div[@id='root']/main/div/div[2]/div/div/form/div/div/div/input",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/main/div/div[2]/div/div/form/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "qa_user"
+    }, {
+      "id": "56cf1290-aa3c-4b59-8b6c-5fffc204ade9",
+      "comment": "",
+      "command": "type",
+      "target": "xpath=//div[@id='root']/main/div/div[2]/div/div/form/div[2]/div/div/input",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/main/div/div[2]/div/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "agROS_2023"
+    }, {
+      "id": "46fe9e0b-c61c-4eed-8000-07f3804defd6",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[@id='root']/main/div/div[2]/div/div/div[2]/div/button",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//div[@id='root']/main/div/div[2]/div/div/div[2]/div/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Ingresar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "24ee6a9e-0b47-4473-bc3b-1d859a217d0e",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[@id='root']/main/div/div/div/div/div/div/div/div[2]/div/div/div/div[3]/ul[2]/a/div[2]",
+      "targets": [
+        ["css=.MuiList-root:nth-child(2) > .MuiButtonBase-root:nth-child(2) > .MuiListItemText-root", "css:finder"],
+        ["xpath=//div[@id='root']/main/div/div/div/div/div/div/div/div[2]/div/div/div/div[3]/ul[2]/a/div[2]", "xpath:idRelative"],
+        ["xpath=//ul[2]/a/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "39762b3a-b240-41ff-bf9c-bc442cb06409",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[@id='root']/main/div/div[2]/div/div/div/div[2]/div/button",
+      "targets": [
+        ["css=.css-1ejgif0 > .MuiButton-root", "css:finder"],
+        ["xpath=(//button[@type='button'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='root']/main/div/div[2]/div/div/div/div[2]/div/button", "xpath:idRelative"],
+        ["xpath=//div/div/div[2]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Nuevo productor')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d2117923-81c5-4a6b-8fa6-904c5ba6c6ad",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[3]/div/div/div/div/div/div/input",
+      "targets": [
+        ["id=dni", "id"],
+        ["name=dni", "name"],
+        ["css=#dni", "css:finder"],
+        ["xpath=//input[@id='dni']", "xpath:attributes"],
+        ["xpath=//div[3]/div/div/div/div/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "37d7cdbf-9ac0-452f-850e-70fc203b6771",
+      "comment": "",
+      "command": "type",
+      "target": "xpath=//div[3]/div/div/div/div/div/div/input",
+      "targets": [
+        ["id=dni", "id"],
+        ["name=dni", "name"],
+        ["css=#dni", "css:finder"],
+        ["xpath=//input[@id='dni']", "xpath:attributes"],
+        ["xpath=//div[3]/div/div/div/div/div/div/input", "xpath:position"]
+      ],
+      "value": "73172642"
+    }, {
+      "id": "92363904-8e7f-4946-8abd-ff45957bbeb3",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[3]/div/div/div/div/div/div/div/div/button/span",
+      "targets": [
+        ["css=.MuiIconButton-sizeMedium > .material-icons", "css:finder"],
+        ["xpath=//div[3]/div/div/div/div/div/div/div/div/button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'search')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9a92c65e-8288-4ede-80ef-5bb0e43e3982",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//body",
+      "targets": [
+        ["css=body", "css:finder"],
+        ["xpath=//body", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b543e71b-4570-4891-be60-f103627279a6",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[3]/div[3]/ul/li",
+      "targets": [
+        ["css=.MuiMenuItem-root:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='menu-gender']/div[3]/ul/li", "xpath:idRelative"],
+        ["xpath=//div[3]/div[3]/ul/li", "xpath:position"],
+        ["xpath=//li[contains(.,'Masculino')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3dd0b142-09a0-4f11-9853-7e699241157c",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//input[@id='phone']",
+      "targets": [
+        ["name=phone", "name"],
+        ["css=.react-tel-input > #phone", "css:finder"],
+        ["xpath=//input[@id='phone']", "xpath:attributes"],
+        ["xpath=//div[5]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cce9b424-6340-45df-a78b-ff4e3c031f7c",
+      "comment": "",
+      "command": "type",
+      "target": "xpath=//div[5]/div/div/input",
+      "targets": [
+        ["name=phone", "name"],
+        ["css=.react-tel-input > #phone", "css:finder"],
+        ["xpath=//input[@id='phone']", "xpath:attributes"],
+        ["xpath=//div[5]/div/div/input", "xpath:position"]
+      ],
+      "value": "+51 987 654 321"
+    }, {
+      "id": "d696d986-d922-4fb6-a12a-efebf5aedf23",
+      "comment": "",
+      "command": "type",
+      "target": "xpath=//div[6]/div/div/input",
+      "targets": [
+        ["name=whatsapp_number", "name"],
+        ["css=.react-tel-input > #whatsapp_number", "css:finder"],
+        ["xpath=//input[@id='whatsapp_number']", "xpath:attributes"],
+        ["xpath=//div[6]/div/div/input", "xpath:position"]
+      ],
+      "value": "+51 987 654 321"
+    }, {
+      "id": "089eeca5-24b8-4e5f-95f5-ebc82b8e872b",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[3]/div/div[2]/div[2]/button",
+      "targets": [
+        ["css=.css-vswc2n", "css:finder"],
+        ["xpath=(//button[@type='button'])[45]", "xpath:attributes"],
+        ["xpath=//div[3]/div/div[2]/div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Registrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "c65faadf-d46e-419e-b180-1ed7c275f4dc",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["444f950e-7675-4a9f-b734-157e7ac7860f"]
+  }],
+  "urls": ["https://id-panel-stage.agros.tech/"],
+  "plugins": []
+}
