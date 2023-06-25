@@ -1,0 +1,63 @@
+{
+  "id": "b93ed0ec-33e6-410e-bb44-e30167da20b4",
+  "version": "2.0",
+  "name": "prueba",
+  "url": "https://id-panel-stage.agros.tech",
+  "tests": [{
+    "id": "7009f87d-15b6-4cc2-b560-4ac1fced059e",
+    "name": "Untitled",
+    "commands": [{
+      "id": "04af7bdc-be9b-4d04-8d00-540190155f2f",
+      "comment": "",
+      "command": "click",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/main/div/div[2]/div/div/form/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d24e1861-8ec4-4bb9-ae5f-801380eb39e0",
+      "comment": "tipoDeDato:string-longitud:10-obligatorio:si",
+      "command": "type",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/main/div/div[2]/div/div/form/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "cualquier cosaaaaaaaaaaaaa"
+    }, {
+      "id": "3c4b005c-d5f0-4d48-a77c-dd85a90cbd2b",
+      "comment": "tipoDeDato:string-longitud:10",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/main/div/div[2]/div/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "contraseña"
+    }]
+  }],
+  "suites": [{
+    "id": "a1ab8b46-c2fb-46d0-ac4d-aa742b8e9483",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["7009f87d-15b6-4cc2-b560-4ac1fced059e"]
+  }],
+  "urls": ["https://id-panel-stage.agros.tech/"],
+  "plugins": []
+}
