@@ -14,14 +14,17 @@ drivers = [
     edgeOptions
 ]
 
-cleaunp = JsonRoutine("CrearProductoresAGROS.json").routine
+data = JsonRoutine("CrearProductoresAGROS.json")
 
 target_url = 'https://id-panel-stage.agros.tech/'
 
+testerNavigators = []
+
 for driver in drivers:
     nav = Navigator(webdriver_url, options=driver)
-    nav.implicitly_wait(5)
-    nav.initSession(target_url)
-    nav.executeRoutine(cleaunp)
-    nav.deleteSession()
-    print('Rutina terminada ')
+    nav.initSession(data.targetUrl)
+    testerNavigators.append(nav)
+
+for navigator in testerNavigators:
+    navigator.executeRoutine(data.routine)
+    navigator.deleteSession()
