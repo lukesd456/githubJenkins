@@ -70,6 +70,7 @@ class Tests:
             "actions":actions,
             "valorEsperado": 'primer'
         })
+        self.testRoutines = []
 
     def filterTests(self, test:list, defaultValue, routine:list, accion:dict, longitud:int, iteracion:int):
         
@@ -107,7 +108,7 @@ class Tests:
         if changed:
             accion['value'] = newValue
             routine[iteracion] = accion
-            self.routine.append(routine)
+            self.testRoutines.append(routine)
 
     
     def createTests(self):
@@ -144,116 +145,6 @@ class Tests:
                     
                     self.filterTests(t,defaultValue,rutina,accion,longitud,i)
 
-
-                    # match t[0]:
-
-                    #     case 'tipoDeDato':
-                            
-                    #         if t[1] == 'string':
-
-                    #             newValue = numberByLength(longitud)
-                    #             changed=True
-
-                    #         elif t[1] == 'number':
-
-                    #             newValue = str(uuid.uuid4())[:longitud]
-
-                    #     case 'obligatorio':
-
-                    #         if t[1] == 'si':
-
-                    #             newValue = ''
-                    #             changed=True
-
-                    #     case 'longitud':
-
-                    #         newValue = str(uuid.uuid4())[:longitud+1]
-                    #         changed=True
-
-                    # if changed:
-                    #     testRoutine[i]['value'] = newValue
-                    #     arrayActionTests.append(testRoutine)
-
-
-
-                
-
-            # if val == 'type':
-
-            #     #Tipo de test a realizar
-            #     tests:list = accion['typeTest'].split('-')
-
-            #     arrayTests:list = []
-
-            #     for t in tests:
-            #         arrayTests.append(t.split(':'))
-                
-            #     for t in arrayTests:
-            #         if t[0] == 'longitud':
-            #             longitud = int(t[1])
-
-            #         if t[0] == 'valorEsperado':
-            #             valorEsperado=t[1]
-                
-            #     #Crear test por strings
-            #     for t in arrayTests:
-
-            #         dataTypeRoutine = rutina
-            #         dataTypeAction = accion
-
-            #         if t[0] == 'tipoDeDato':
-                        
-            #             testByData = ''
-                        
-            #             match t[1]:
-            #                 case 'string':
-                                
-            #                     testByData = numberByLength(longitud)
-                            
-            #                 case 'number':
-
-            #                     testByData = str(uuid.uuid4())[:longitud]
-
-            #             dataTypeAction['value'] = testByData
-            #             dataTypeRoutine[i] = dataTypeAction
-
-
-
-            #             self.routine.append({
-            #                 'valorEsperado' : valorEsperado,
-            #                 "actions" : dataTypeRoutine
-            #             })
-
-            #     for t in arrayTests:
-                    
-            #         requiredAction = accion
-            #         requiredRoutine = rutina
-
-            #         if (t[0] == 'obligatorio') & (t[1] == 'si'):
-
-            #             requiredAction['value'] = ''
-            #             requiredRoutine[i] = requiredAction
-
-            #             self.routine.append({
-            #                 'valorEsperado' : valorEsperado,
-            #                 "actions" : requiredRoutine
-            #             })
-
-
-            #     for t in arrayTests:
-
-            #         if t[0] == 'longitud':
-
-            #             lengthAction = accion
-            #             lenghtRoutine = rutina
-
-            #             lengthAction['value'] = str(uuid.uuid4())[:longitud+1]
-            #             lenghtRoutine[i] = lengthAction
-
-            #             self.routine.append({
-            #                 'valorEsperado' : valorEsperado,
-            #                 "actions" : lenghtRoutine
-            #             })           
 
 prueba = Tests('prueba.json')
 
