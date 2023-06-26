@@ -1,10 +1,10 @@
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import InvalidSelectorException
+# from selenium import webdriver
+# from selenium.webdriver.common.by import By
+# from selenium.webdriver.support.wait import WebDriverWait
+# from selenium.webdriver.support import expected_conditions as EC
+# from selenium.common.exceptions import InvalidSelectorException
 import json
-
+import copy
 import uuid
 import random
 
@@ -71,31 +71,112 @@ class Tests:
             "valorEsperado": 'primer'
         })
 
+    def filterTests(self, test:list, defaultValue, routine:list, accion:dict, longitud:int, iteracion:int):
+        
+        accion:dict = copy.copy(accion)
+        routine:list = copy.copy(routine)
+        newValue = copy.copy(defaultValue)
+        changed = False
+
+        uniqueValue = uuid.uuid4()
+
+        match test[0]:
+            case 'tipoDeDato':
+
+                if test[1] == 'string':
+
+                    newValue = numberByLength(longitud)
+                    changed = True
+                
+                elif test[1] == 'number':
+
+                    newValue = str(uniqueValue)[:longitud]
+                    changed = True
+
+            case 'longitud':
+
+                newValue = str(uniqueValue)[:longitud]
+                changed = True
+
+            case 'obligatorio':
+
+                if test[1] == 'si':
+                    newValue = ''
+                    changed = True
+
+        if changed:
+            accion['value'] = newValue
+            routine[iteracion] = accion
+            self.routine.append(routine)
+
+    
     def createTests(self):
 
         # Recorrido a todas acciones que se encuentran en la rutina inicial
         for i in range(0,len(self.routine[0]['actions'])):
             
             #Rutina Individual
-            rutina:list = self.routine[0]['actions']
+            rutina:list = copy.copy(self.routine[0]['actions'])
 
             #Accion individual segun el orden de accion
-            accion:dict = rutina[i]
+            accion:dict = copy.copy(rutina[i])
+
+            defaultValue = accion['value']
 
             val = accion['action']
-            
-            if val == 'type':
+        
+            if val == 'type' :
 
                 tests:list = accion['typeTest'].split('-')
 
-                arrayTests = []
+                arrayTests:list = []
 
                 for t in tests:
-                    arrayTests.append(t.split('-'))
+                    arrayTests.append(t.split(':'))
 
-                for test in arrayTests:
+                for t in arrayTests:
+                    if t[0] == 'valorEsperado':
+                        valorEsperado = t[1]
+                    elif t[0] == 'longitud':
+                        longitud = int(t[1])
 
-                    match
+                for t in arrayTests:
+                    
+                    self.filterTests(t,defaultValue,rutina,accion,longitud,i)
+
+
+                    # match t[0]:
+
+                    #     case 'tipoDeDato':
+                            
+                    #         if t[1] == 'string':
+
+                    #             newValue = numberByLength(longitud)
+                    #             changed=True
+
+                    #         elif t[1] == 'number':
+
+                    #             newValue = str(uuid.uuid4())[:longitud]
+
+                    #     case 'obligatorio':
+
+                    #         if t[1] == 'si':
+
+                    #             newValue = ''
+                    #             changed=True
+
+                    #     case 'longitud':
+
+                    #         newValue = str(uuid.uuid4())[:longitud+1]
+                    #         changed=True
+
+                    # if changed:
+                    #     testRoutine[i]['value'] = newValue
+                    #     arrayActionTests.append(testRoutine)
+
+
+
+                
 
             # if val == 'type':
 
@@ -179,7 +260,7 @@ prueba = Tests('prueba.json')
 prueba.createTests()
 
 
-print(prueba.routine)
+# print(prueba.routine)
 # for r in range(0,len(prueba.routine)):
 #     print('')
 #     print(prueba.routine[r]['actions'])
