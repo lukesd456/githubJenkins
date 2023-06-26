@@ -22,7 +22,7 @@
       "value": ""
     }, {
       "id": "d24e1861-8ec4-4bb9-ae5f-801380eb39e0",
-      "comment": "tipoDeDato:string-longitud:10-obligatorio:si",
+      "comment": "tipoDeDato:string-longitud:10-obligatorio:si-valorEsperado:hola",
       "command": "type",
       "target": "id=username",
       "targets": [
@@ -36,7 +36,7 @@
       "value": "cualquier cosaaaaaaaaaaaaa"
     }, {
       "id": "3c4b005c-d5f0-4d48-a77c-dd85a90cbd2b",
-      "comment": "tipoDeDato:string-longitud:10",
+      "comment": "tipoDeDato:string-longitud:12-valorEsperado:hola2-obligatorio:si",
       "command": "type",
       "target": "id=password",
       "targets": [

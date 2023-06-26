@@ -67,86 +67,120 @@ class Tests:
                 actions.append(detail)
             
         self.routine.append({
-            'valorEsperado':'primer',
-            "actions":actions
+            "actions":actions,
+            "valorEsperado": 'primer'
         })
 
     def createTests(self):
 
         # Recorrido a todas acciones que se encuentran en la rutina inicial
         for i in range(0,len(self.routine[0]['actions'])):
+            
+            #Rutina Individual
+            rutina:list = self.routine[0]['actions']
 
-            # Establezco la copia de la rutina
-            # esto ofrece un diccionario {"valorEsperado", "actions"}
-            copyRutine:list = self.routine[0]
+            #Accion individual segun el orden de accion
+            accion:dict = rutina[i]
 
-            if self.routine[0]['actions'][i]['action'] == 'type':
+            val = accion['action']
+            
+            if val == 'type':
 
-                # Creo el arreglo de tipo de tests de la accion
-                typeTests:list = copyRutine['actions'][i]['typeTest'].split('-')
+                tests:list = accion['typeTest'].split('-')
 
-                # Recorrido para establecer la longitud del dato 
-                for test in typeTests:
-                    t = test.split(':')
+                arrayTests = []
 
-                    # Se busca el test que contenga la especificaicon de la longitud 
-                    if t[0] == 'longitud':
-                        self.routine[0]['actions'][i]['longitud'] = int(t[1])
-                        copyRutine['actions'][i]['longitud'] = int(t[1])
+                for t in tests:
+                    arrayTests.append(t.split('-'))
 
-                # Recorrida para capturar el valor esperado
-                for test in typeTests:
-                    t=test.split(':')
-                    if t[0] == 'valorEsperado':
-                        copyRutine['valorEsperado'] = t[1]
+                for test in arrayTests:
 
-                # Recorro el arreglo de typeTests para detallar los tests 
-                for test in typeTests:
-                    
-                    # Particiono el string del tipo de test 
-                    # El primer indice tengra el tipo de test, y el segundo tendra que es lo que debe tener
-                    # Ejemplo ['obligatorio','no']
-                    t = test.split(':')
+                    match
 
-                    longitud = copyRutine['actions'][i]['longitud']
+            # if val == 'type':
 
-                    # Creamos una nueva rutina segun el tipo de test
-                    match t[0]:
-                        # ·Test para verificar la obligatoriedad
-                        case 'obligatorio':
-                            if t[1] == 'si':
-                                copyRutine['actions'][i]['value']=''
-                                self.routine.append(copyRutine)
-                                print('se ejecuto para obligatorio')
+            #     #Tipo de test a realizar
+            #     tests:list = accion['typeTest'].split('-')
 
+            #     arrayTests:list = []
 
-                        case 'tipoDeDato':
+            #     for t in tests:
+            #         arrayTests.append(t.split(':'))
+                
+            #     for t in arrayTests:
+            #         if t[0] == 'longitud':
+            #             longitud = int(t[1])
+
+            #         if t[0] == 'valorEsperado':
+            #             valorEsperado=t[1]
+                
+            #     #Crear test por strings
+            #     for t in arrayTests:
+
+            #         dataTypeRoutine = rutina
+            #         dataTypeAction = accion
+
+            #         if t[0] == 'tipoDeDato':
                         
-                        # test para probar que solo acepta numeros                            
-                            if t[1] == 'number':
-                                copyRutine['actions'][i]['value'] = str(uuid.uuid4())[:longitud]
-                                self.routine.append(copyRutine)
-                                print(f'se ejecuto test para number {i}')
-
+            #             testByData = ''
+                        
+            #             match t[1]:
+            #                 case 'string':
+                                
+            #                     testByData = numberByLength(longitud)
                             
-                        # test para probar que solo acepta strings
-                            elif t[1] == 'string':
-                                copyRutine['actions'][i]['value']= numberByLength(longitud)
-                                self.routine.append(copyRutine)
-                                print(f'se ejecuto test para string {i}')
-  
-                        
-                        # Test para superar la longitud 
-                        case 'longitud':
-                            copyRutine['actions'][i]['value']=str(uuid.uuid4())[:longitud+1]
-                            self.routine.append(copyRutine)
-                            print('es ejecuto para longitud')
+            #                 case 'number':
 
-                        case _:
-                            pass
+            #                     testByData = str(uuid.uuid4())[:longitud]
 
+            #             dataTypeAction['value'] = testByData
+            #             dataTypeRoutine[i] = dataTypeAction
+
+
+
+            #             self.routine.append({
+            #                 'valorEsperado' : valorEsperado,
+            #                 "actions" : dataTypeRoutine
+            #             })
+
+            #     for t in arrayTests:
+                    
+            #         requiredAction = accion
+            #         requiredRoutine = rutina
+
+            #         if (t[0] == 'obligatorio') & (t[1] == 'si'):
+
+            #             requiredAction['value'] = ''
+            #             requiredRoutine[i] = requiredAction
+
+            #             self.routine.append({
+            #                 'valorEsperado' : valorEsperado,
+            #                 "actions" : requiredRoutine
+            #             })
+
+
+            #     for t in arrayTests:
+
+            #         if t[0] == 'longitud':
+
+            #             lengthAction = accion
+            #             lenghtRoutine = rutina
+
+            #             lengthAction['value'] = str(uuid.uuid4())[:longitud+1]
+            #             lenghtRoutine[i] = lengthAction
+
+            #             self.routine.append({
+            #                 'valorEsperado' : valorEsperado,
+            #                 "actions" : lenghtRoutine
+            #             })           
 
 prueba = Tests('prueba.json')
+
 prueba.createTests()
-print(len(prueba.routine))
-print(prueba)
+
+
+print(prueba.routine)
+# for r in range(0,len(prueba.routine)):
+#     print('')
+#     print(prueba.routine[r]['actions'])
+#     print('')
