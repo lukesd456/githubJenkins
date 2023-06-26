@@ -67,10 +67,10 @@ class Tests:
                 actions.append(detail)
             
         self.routine.append({
-            "actions":actions,
-            "valorEsperado": 'primer'
+            "actions":actions
         })
         self.testRoutines = []
+        self.valoresEsperados = []
 
     def filterTests(self, test:list, defaultValue, routine:list, accion:dict, longitud:int, iteracion:int):
         
@@ -126,6 +126,12 @@ class Tests:
 
             val = accion['action']
         
+            if val == 'click':
+                
+                clickTest = accion['typeTest']
+
+                self.valoresEsperados.append(clickTest)
+
             if val == 'type' :
 
                 tests:list = accion['typeTest'].split('-')
@@ -137,7 +143,8 @@ class Tests:
 
                 for t in arrayTests:
                     if t[0] == 'valorEsperado':
-                        valorEsperado = t[1]
+                        valorEsperado = copy.copy(t[1])
+                        self.valoresEsperados.append(valorEsperado)
                     elif t[0] == 'longitud':
                         longitud = int(t[1])
 
@@ -149,7 +156,7 @@ class Tests:
 prueba = Tests('prueba.json')
 
 prueba.createTests()
-
+print(prueba.valoresEsperados)
 
 # print(prueba.routine)
 # for r in range(0,len(prueba.routine)):
