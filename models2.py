@@ -72,7 +72,7 @@ class Tests:
         self.testRoutines = []
         self.valoresEsperados = []
 
-    def filterTests(self, test:list, defaultValue, routine:list, accion:dict, longitud:int, iteracion:int):
+    def filterTests(self, test:list, defaultValue, routine:list, accion:dict, longitud:int, iteracion:int, tipoDeDato:str):
         
         accion:dict = copy.copy(accion)
         routine:list = copy.copy(routine)
@@ -96,7 +96,12 @@ class Tests:
 
             case 'longitud':
 
-                newValue = str(uniqueValue)[:longitud]
+                if tipoDeDato == 'string':
+                    newValue = str(uniqueValue)[:longitud+1]
+                    
+                elif tipoDeDato == 'number':
+                    newValue = numberByLength(longitud+1)
+
                 changed = True
 
             case 'obligatorio':
@@ -148,9 +153,12 @@ class Tests:
                     elif t[0] == 'longitud':
                         longitud = int(t[1])
 
+                    elif t[0] == 'tipoDeDato':
+                        tipoDeDato = t[1]
+
                 for t in arrayTests:
                     
-                    self.filterTests(t,defaultValue,rutina,accion,longitud,i)
+                    self.filterTests(t,defaultValue,rutina,accion,longitud,i, tipoDeDato)
 
 
 prueba = Tests('prueba.json')
