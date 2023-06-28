@@ -1,8 +1,3 @@
-# from selenium import webdriver
-# from selenium.webdriver.common.by import By
-# from selenium.webdriver.support.wait import WebDriverWait
-# from selenium.webdriver.support import expected_conditions as EC
-# from selenium.common.exceptions import InvalidSelectorException
 import json
 import copy
 import uuid
@@ -71,6 +66,7 @@ class Tests:
         })
         self.testRoutines = []
         self.valoresEsperados = []
+        self.erroresEsperados = []
 
     def filterTests(self, test:list, defaultValue, routine:list, accion:dict, longitud:int, iteracion:int, tipoDeDato:str):
         
@@ -135,7 +131,8 @@ class Tests:
                 
                 clickTest = accion['typeTest']
 
-                self.valoresEsperados.append(clickTest)
+                if clickTest != '':
+                    self.valoresEsperados.append(clickTest)
 
             if val == 'type' :
 
@@ -147,9 +144,9 @@ class Tests:
                     arrayTests.append(t.split(':'))
 
                 for t in arrayTests:
-                    if t[0] == 'valorEsperado':
+                    if t[0] == 'errorEsperado':
                         valorEsperado = copy.copy(t[1])
-                        self.valoresEsperados.append(valorEsperado)
+                        self.erroresEsperados.append(valorEsperado)
                     elif t[0] == 'longitud':
                         longitud = int(t[1])
 
@@ -164,10 +161,10 @@ class Tests:
 prueba = Tests('prueba.json')
 
 prueba.createTests()
-print(prueba.valoresEsperados)
 
-# print(prueba.routine)
-# for r in range(0,len(prueba.routine)):
-#     print('')
-#     print(prueba.routine[r]['actions'])
-#     print('')
+print(prueba.erroresEsperados)
+
+for r in prueba.testRoutines:
+    print('')
+    print(r)
+    print('')
