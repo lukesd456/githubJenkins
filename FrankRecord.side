@@ -1,0 +1,264 @@
+{
+  "id": "a314681c-cbc8-4502-a0f4-1f4c7b4ef203",
+  "version": "2.0",
+  "name": "FrankRecord",
+  "url": "https://id-panel-stage.agros.tech",
+  "tests": [{
+    "id": "a382aed7-3f15-4b2d-8e52-e828e0b13e58",
+    "name": "Test1",
+    "commands": [{
+      "id": "62dab041-97ea-46dc-9892-ebf0a0b001bd",
+      "comment": "",
+      "command": "click",
+      "target": "css=.MuiList-root:nth-child(3) > .MuiButtonBase-root:nth-child(3) > .MuiListItemText-root",
+      "targets": [
+        ["css=.MuiList-root:nth-child(3) > .MuiButtonBase-root:nth-child(3) > .MuiListItemText-root", "css:finder"],
+        ["xpath=//ul[3]/a[2]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0628c7af-6ef7-426e-860d-a0d504cf3a61",
+      "comment": "",
+      "command": "click",
+      "target": "css=.MuiBackdrop-root",
+      "targets": [
+        ["css=.MuiBackdrop-root", "css:finder"],
+        ["xpath=//body/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "24b559ee-4b7c-4813-b887-092824fda380",
+      "comment": "",
+      "command": "click",
+      "target": "css=.MuiButton-root",
+      "targets": [
+        ["css=.MuiButton-root", "css:finder"],
+        ["xpath=(//button[@type='button'])[4]", "xpath:attributes"],
+        ["xpath=//div[@id='root']/main/div/div[2]/div/div/div[3]/div/div/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Nuevo centro de acopio')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3e972ff5-4df2-49d7-9793-a3b8e536b673",
+      "comment": "",
+      "command": "click",
+      "target": "id=ruc",
+      "targets": [
+        ["id=ruc", "id"],
+        ["name=ruc", "name"],
+        ["css=#ruc", "css:finder"],
+        ["xpath=//input[@id='ruc']", "xpath:attributes"],
+        ["xpath=//div[3]/div/div/div/div/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "713b3e19-1af6-443e-8f65-4a678c3ebfd2",
+      "comment": "tipoDeDato:number-longitud:13-obligatorio:si-errorEsperado:Campo Requerido",
+      "command": "type",
+      "target": "id=ruc",
+      "targets": [
+        ["id=ruc", "id"],
+        ["name=ruc", "name"],
+        ["css=#ruc", "css:finder"],
+        ["xpath=//input[@id='ruc']", "xpath:attributes"],
+        ["xpath=//div[3]/div/div/div/div/div/div/input", "xpath:position"]
+      ],
+      "value": "10731726423"
+    }, {
+      "id": "2626e636-843b-482a-881c-aca2b537190f",
+      "comment": "",
+      "command": "click",
+      "target": "id=business_name",
+      "targets": [
+        ["id=business_name", "id"],
+        ["name=business_name", "name"],
+        ["css=#business_name", "css:finder"],
+        ["xpath=//input[@id='business_name']", "xpath:attributes"],
+        ["xpath=//div[3]/div/div/div/div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3ac6df56-21bc-41f1-8951-79f091ac51a7",
+      "comment": "tipoDeDato:string-obligatorio:si",
+      "command": "type",
+      "target": "id=business_name",
+      "targets": [
+        ["id=business_name", "id"],
+        ["name=business_name", "name"],
+        ["css=#business_name", "css:finder"],
+        ["xpath=//input[@id='business_name']", "xpath:attributes"],
+        ["xpath=//div[3]/div/div/div/div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "Prueba qa"
+    }, {
+      "id": "c2cbc292-6e38-4c0b-a051-4492f60c8fd9",
+      "comment": "tipoDeDato:string-obligatorio:si",
+      "command": "type",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["name=name", "name"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//div[3]/div/div/input", "xpath:position"]
+      ],
+      "value": "NombreQA"
+    }, {
+      "id": "173c7471-2d3d-46b4-b6b7-e6f2c4a68006",
+      "comment": "",
+      "command": "click",
+      "target": "id=department_id-option-0",
+      "targets": [
+        ["id=department_id-option-0", "id"],
+        ["css=#department_id-option-0", "css:finder"],
+        ["xpath=//li[@id='department_id-option-0']", "xpath:attributes"],
+        ["xpath=//ul[@id='department_id-listbox']/li", "xpath:idRelative"],
+        ["xpath=//ul/li", "xpath:position"],
+        ["xpath=//li[contains(.,'Piura')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7f7dc8ed-bb50-4e4b-a5e9-c719c83be9d9",
+      "comment": "",
+      "command": "type",
+      "target": "id=department_id",
+      "targets": [
+        ["id=department_id", "id"],
+        ["name=department_id", "name"],
+        ["css=#department_id", "css:finder"],
+        ["xpath=//input[@id='department_id']", "xpath:attributes"],
+        ["xpath=//div[3]/div/div/div/div[4]/div/div/div/div/div/input", "xpath:position"]
+      ],
+      "value": "Piura"
+    }, {
+      "id": "9b1f9981-32a5-4037-a382-b46a387d906b",
+      "comment": "",
+      "command": "click",
+      "target": "id=province_id",
+      "targets": [
+        ["id=province_id", "id"],
+        ["name=province_id", "name"],
+        ["css=#province_id", "css:finder"],
+        ["xpath=//input[@id='province_id']", "xpath:attributes"],
+        ["xpath=//div[5]/div/div/div/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2db637f1-89b3-4ab1-8a92-5bf7b82f7988",
+      "comment": "",
+      "command": "click",
+      "target": "id=province_id-option-0",
+      "targets": [
+        ["id=province_id-option-0", "id"],
+        ["css=#province_id-option-0", "css:finder"],
+        ["xpath=//li[@id='province_id-option-0']", "xpath:attributes"],
+        ["xpath=//ul[@id='province_id-listbox']/li", "xpath:idRelative"],
+        ["xpath=//ul/li", "xpath:position"],
+        ["xpath=//li[contains(.,'Piura')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bd98360b-6c32-4453-96c9-9868b2a25a32",
+      "comment": "",
+      "command": "type",
+      "target": "id=province_id",
+      "targets": [
+        ["id=province_id", "id"],
+        ["name=province_id", "name"],
+        ["css=#province_id", "css:finder"],
+        ["xpath=//input[@id='province_id']", "xpath:attributes"],
+        ["xpath=//div[5]/div/div/div/div/div/input", "xpath:position"]
+      ],
+      "value": "Piura "
+    }, {
+      "id": "31259527-f600-410d-a385-7b7714d81fc1",
+      "comment": "",
+      "command": "click",
+      "target": "id=district_id",
+      "targets": [
+        ["id=district_id", "id"],
+        ["name=district_id", "name"],
+        ["css=#district_id", "css:finder"],
+        ["xpath=//input[@id='district_id']", "xpath:attributes"],
+        ["xpath=//div[6]/div/div/div/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e6b6c91a-d4cd-4101-a141-23d184c16b03",
+      "comment": "",
+      "command": "click",
+      "target": "id=district_id-option-0",
+      "targets": [
+        ["id=district_id-option-0", "id"],
+        ["css=#district_id-option-0", "css:finder"],
+        ["xpath=//li[@id='district_id-option-0']", "xpath:attributes"],
+        ["xpath=//ul[@id='district_id-listbox']/li", "xpath:idRelative"],
+        ["xpath=//ul/li", "xpath:position"],
+        ["xpath=//li[contains(.,'Piura')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1b39255b-80e0-4d6e-86e4-3f95837d6b20",
+      "comment": "",
+      "command": "type",
+      "target": "id=district_id",
+      "targets": [
+        ["id=district_id", "id"],
+        ["name=district_id", "name"],
+        ["css=#district_id", "css:finder"],
+        ["xpath=//input[@id='district_id']", "xpath:attributes"],
+        ["xpath=//div[6]/div/div/div/div/div/input", "xpath:position"]
+      ],
+      "value": "Piura"
+    }, {
+      "id": "956441b6-9fe8-4425-b6d5-e7768bf0863d",
+      "comment": "",
+      "command": "click",
+      "target": "id=address",
+      "targets": [
+        ["id=address", "id"],
+        ["name=address", "name"],
+        ["css=#address", "css:finder"],
+        ["xpath=//input[@id='address']", "xpath:attributes"],
+        ["xpath=//div[7]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f75b8aa5-f711-4b4c-8766-7b55e6c41e2a",
+      "comment": "tipoDeDato:string-obligatorio:si",
+      "command": "type",
+      "target": "id=address",
+      "targets": [
+        ["id=address", "id"],
+        ["name=address", "name"],
+        ["css=#address", "css:finder"],
+        ["xpath=//input[@id='address']", "xpath:attributes"],
+        ["xpath=//div[7]/div/div/input", "xpath:position"]
+      ],
+      "value": "Direccion Generica"
+    }, {
+      "id": "56c9d03e-f52b-47fb-9820-a64ac28d1c8e",
+      "comment": "validador",
+      "command": "click",
+      "target": "css=.css-vswc2n",
+      "targets": [
+        ["css=.css-vswc2n", "css:finder"],
+        ["xpath=(//button[@type='button'])[29]", "xpath:attributes"],
+        ["xpath=//div[2]/div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Registrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "f6536f19-77f5-4cf0-8667-47fa2bc2c637",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["a382aed7-3f15-4b2d-8e52-e828e0b13e58"]
+  }],
+  "urls": ["https://id-panel-stage.agros.tech/"],
+  "plugins": []
+}

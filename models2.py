@@ -32,12 +32,13 @@ class Tests:
             if action['command'] in ['type', 'click']:
                 for target in action['targets']:
                     location = target[1].split(':')
-                    xpath = target[0]
+                    path = target[0]
 
+                    #Para evitar los ID de un solo elemento
                     if len(location) > 1 :
 
                         if location[0] != 'css':
-                            xpath = xpath.split('xpath=')[1]
+                            path = path.split('xpath=')[1]
                             match location[1]:
                                 case 'idRelative':
                                     typePath = 'idRelative'
@@ -48,11 +49,13 @@ class Tests:
                                 case 'position':
                                     typePath = 'position'
                                     break
+                        else:
+                            path = path.split('css=')[1]
+                            typePath = 'css'
+                            break
 
-                
-                
                 detail = {
-                    "target" : xpath,
+                    "target" : path,
                     "typeTarget": typePath,
                     "value" : action["value"],
                     "action" : action["command"],
@@ -65,8 +68,16 @@ class Tests:
             "actions":actions
         })
         self.testRoutines = []
-        self.valoresEsperados = []
         self.erroresEsperados = []
+
+    def waitedClicks(self, typeTest:str, routine:list):
+
+        #POR MODIFICAR
+
+        routine:list = copy.copy(routine)
+
+        if typeTest != '':
+            self.testRoutines.append(routine)
 
     def filterTests(self, test:list, defaultValue, routine:list, accion:dict, longitud:int, iteracion:int, tipoDeDato:str):
         
@@ -123,48 +134,60 @@ class Tests:
             #Accion individual segun el orden de accion
             accion:dict = copy.copy(rutina[i])
 
+            #Valor por defecto de la accion
             defaultValue = accion['value']
 
+            #Descripcion de la especificacion a validar
+            tipoTest:str = accion['typeTest']
+
+            #Descripcion del tipo de accion que realiza
             val = accion['action']
-        
-            if val == 'click':
-                
-                clickTest = accion['typeTest']
 
-                if clickTest != '':
-                    self.valoresEsperados.append(clickTest)
+            #Valida si existe alguna especificacion, en caso de ser nula, no crea test adicionales
+            if tipoTest != '':
 
-            if val == 'type' :
+                match val:
+                    #En caso de que val sea un click
+                    case 'click':
 
-                tests:list = accion['typeTest'].split('-')
+                        #Crea un escenario donde valida el tipo de test
 
-                arrayTests:list = []
+                        if tipoTest != 'validador':
+                            self.waitedClicks(tipoTest, rutina)
 
-                for t in tests:
-                    arrayTests.append(t.split(':'))
+                    #En caso de ser    
+                    case 'type':
 
-                for t in arrayTests:
-                    if t[0] == 'errorEsperado':
-                        valorEsperado = copy.copy(t[1])
-                        self.erroresEsperados.append(valorEsperado)
-                    elif t[0] == 'longitud':
-                        longitud = int(t[1])
+                        tests:list = tipoTest.split('-')
 
-                    elif t[0] == 'tipoDeDato':
-                        tipoDeDato = t[1]
+                        arrayTests:list = []
 
-                for t in arrayTests:
-                    
-                    self.filterTests(t,defaultValue,rutina,accion,longitud,i, tipoDeDato)
+                        for t in tests:
+                            arrayTests.append(t.split(':'))
+
+                        for t in arrayTests:
+
+                            if t[0] == 'errorEsperado':
+                                valorEsperado = copy.copy(t[1])
+                                self.erroresEsperados.append(valorEsperado)
+                            elif t[0] == 'longitud':
+                                longitud = int(t[1])
+
+                            elif t[0] == 'tipoDeDato':
+                                tipoDeDato = t[1]
+
+                        for t in arrayTests:
+                            
+                            self.filterTests(t,defaultValue,rutina,accion,longitud,i, tipoDeDato)
 
 
-prueba = Tests('prueba.json')
+# prueba = Tests('prueba.json')
 
-prueba.createTests()
+# prueba.createTests()
 
-print(prueba.erroresEsperados)
+# print(prueba.erroresEsperados)
 
-for r in prueba.testRoutines:
-    print('')
-    print(r)
-    print('')
+# for r in prueba.testRoutines:
+#     print('')
+#     print(r)
+#     print('')

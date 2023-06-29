@@ -1,0 +1,61 @@
+{
+  "id": "a314681c-cbc8-4502-a0f4-1f4c7b4ef203",
+  "version": "2.0",
+  "name": "FrankRecord",
+  "url": "https://id-panel-stage.agros.tech",
+  "tests": [{
+    "id": "a382aed7-3f15-4b2d-8e52-e828e0b13e58",
+    "name": "Untitled",
+    "commands": [{
+      "id": "3801690b-c940-4011-96ac-521b765fff33",
+      "comment": "",
+      "command": "type",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/main/div/div[2]/div/div/form/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "achorres_sinergia"
+    }, {
+      "id": "4d95f6ef-e3bf-41a2-b2c9-5b1909930196",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/main/div/div[2]/div/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "agROS_123!!"
+    }, {
+      "id": "57a85b1b-daee-47bc-9f75-0ef1959fe9ae",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//div[@id='root']/main/div/div[2]/div/div/div[2]/div/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Ingresar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "f6536f19-77f5-4cf0-8667-47fa2bc2c637",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["a382aed7-3f15-4b2d-8e52-e828e0b13e58"]
+  }],
+  "urls": ["https://id-panel-stage.agros.tech/"],
+  "plugins": []
+}

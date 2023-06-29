@@ -48,7 +48,8 @@ class JsonRoutine:
                     "target" : xpath,
                     "typeTarget": typePath,
                     "value" : action["value"],
-                    "action" : action["command"]
+                    "action" : action["command"],
+                    "typeTest":''
                 }
 
                 actions.append(detail)
@@ -56,7 +57,7 @@ class JsonRoutine:
 
         self.routine = actions
 
-class Navigator(webdriver.Remote, By):
+class Navigator2(webdriver.Remote, By):
 
     def selectElementByXPATH(self, location:str):
         WebDriverWait(driver=self, timeout=30).until(EC.presence_of_element_located((self.XPATH, location)))

@@ -1,0 +1,118 @@
+{
+  "id": "e1023978-1e97-4c16-97f9-015d8081bb95",
+  "version": "2.0",
+  "name": "testFrank",
+  "url": "https://id-panel-stage.agros.tech",
+  "tests": [{
+    "id": "38d2c9da-d7ce-457f-b492-48ca65e68d0f",
+    "name": "Untitled",
+    "commands": [{
+      "id": "a3f0b933-8d07-400e-9dcd-055b7e224182",
+      "comment": "",
+      "command": "click",
+      "target": "css=.css-ax34jm > .MuiListItemText-root",
+      "targets": [
+        ["xpath=//div[@id='root']/main/div/div/div/div/div/div/div/div[2]/div/div/div/div[3]/ul[3]/a[2]/div[2]", "xpath:idRelative"],
+        ["xpath=//ul[3]/a[2]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "261df648-68a2-4b6b-aae1-da41020b9754",
+      "comment": "",
+      "command": "click",
+      "target": "css=.MuiButton-root",
+      "targets": [
+        ["xpath=(//button[@type='button'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='root']/main/div/div[2]/div/div/div[3]/div/div/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Nuevo centro de acopio')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2b6f5e36-4d39-4be4-814f-a1617753727d",
+      "comment": "tipoDeDato:number-longitud:13-obligatorio:si-errorEsperado:Campo requerido",
+      "command": "type",
+      "target": "id=ruc",
+      "targets": [
+        ["id=ruc", "id"],
+        ["name=ruc", "name"],
+        ["css=#ruc", "css:finder"],
+        ["xpath=//input[@id='ruc']", "xpath:attributes"],
+        ["xpath=//div[3]/div/div/div/div/div/div/input", "xpath:position"]
+      ],
+      "value": "1073172642"
+    }, {
+      "id": "55f16520-8412-439c-aca6-2047bb6f2836",
+      "comment": "tipoDeDato:string-obligatorio:si",
+      "command": "type",
+      "target": "id=business_name",
+      "targets": [
+        ["id=business_name", "id"],
+        ["name=business_name", "name"],
+        ["css=#business_name", "css:finder"],
+        ["xpath=//input[@id='business_name']", "xpath:attributes"],
+        ["xpath=//div[3]/div/div/div/div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "QARAZONSOCIALPRUEBA"
+    }, {
+      "id": "ea3ac207-ddf2-4cef-81cd-d1be1087a58d",
+      "comment": "tipoDeDato:string-obligatorio:si",
+      "command": "type",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["name=name", "name"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//div[3]/div/div/input", "xpath:position"]
+      ],
+      "value": "QANOMBRE"
+    }, {
+      "id": "2f52d528-b409-4982-947c-5ee20230b3a0",
+      "comment": "tipoDeDato:string-obligatorio:si",
+      "command": "type",
+      "target": "id=address",
+      "targets": [
+        ["id=address", "id"],
+        ["name=address", "name"],
+        ["css=#address", "css:finder"],
+        ["xpath=//input[@id='address']", "xpath:attributes"],
+        ["xpath=//div[7]/div/div/input", "xpath:position"]
+      ],
+      "value": "DIRECCIONQA"
+    }, {
+      "id": "8b1716f5-360e-4474-be4a-a9c120092afa",
+      "comment": "validador",
+      "command": "click",
+      "target": "css=.css-vswc2n",
+      "targets": [
+        ["css=.css-vswc2n", "css:finder"],
+        ["xpath=(//button[@type='button'])[43]", "xpath:attributes"],
+        ["xpath=//div[3]/div/div[2]/div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Registrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "11483b56-83f5-4dc6-8a7b-07038483ffbb",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal-button",
+      "targets": [
+        ["css=.swal-button", "css:finder"],
+        ["xpath=//div[3]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'OK')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "ad22dd58-cafd-46b4-8f22-2fe44c7e5886",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["38d2c9da-d7ce-457f-b492-48ca65e68d0f"]
+  }],
+  "urls": ["https://id-panel-stage.agros.tech/"],
+  "plugins": []
+}
