@@ -30,7 +30,7 @@
       "value": ""
     }, {
       "id": "2b6f5e36-4d39-4be4-814f-a1617753727d",
-      "comment": "tipoDeDato:number-longitud:13-obligatorio:si-errorEsperado:Campo requerido",
+      "comment": "tipoDeDato:number-longitud:13-obligatorio:no-errorEsperado:Campo requerido",
       "command": "type",
       "target": "id=ruc",
       "targets": [
@@ -82,7 +82,7 @@
       "value": "DIRECCIONQA"
     }, {
       "id": "8b1716f5-360e-4474-be4a-a9c120092afa",
-      "comment": "validador",
+      "comment": "validador:si",
       "command": "click",
       "target": "css=.css-vswc2n",
       "targets": [
