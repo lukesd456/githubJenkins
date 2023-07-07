@@ -1,18 +1,27 @@
 import json
 import copy
+import uuid
+import random
+
+def numberByLength(N:int) -> int:
+    low = pow(10, N-1)
+    up = pow(10, N) -1
+
+    return random.randint(low,up)
 
 class TestTemplates:
-    def __init__(self, routine:list, mensajeEsperado:str = '') -> None:
+    def __init__(self, routine:list, mensajeEsperado:str, indice:int) -> None:
 
         self.mensajeEsperado:str = mensajeEsperado
-        self.routine:list = routine
+        self.listActions:list = [ e for e in routine]
+        self.indice = indice
 
 
 class GeneralTemplate:
     def __init__(self, value:str, target:str, typePath:str, indice:int, mensajeEsperado:str, validador:bool ) -> None:
 
-        self.target=target,
-        self.value=value,
+        self.target=target
+        self.value=value
         self.typePath = typePath
         self.indice = indice
         self.mensajeEsperado = mensajeEsperado
@@ -40,12 +49,17 @@ class TypingTemplate(GeneralTemplate):
 
     def createDetail(self, tipoDeDato:str, longitud:int, obligatorio:bool, unico:bool):
         detail = {
+
             #Detalles generales
             "value" : self.value,
             "target" : self.target,
             "typePath" : self.typePath,
             "tipoDeAccion": "type",
+
+            #Por default es '' (Vacio)
             "mensajeEsperado" : self.mensajeEsperado,
+
+            #Estos valores siempre son obligatorios
 
             #tipoDeDato:string
             "tipoDeDato" : tipoDeDato,
@@ -56,6 +70,7 @@ class TypingTemplate(GeneralTemplate):
             #unico:si
             "unico" : unico,
 
+            #Generado por el bucle
             "indice" : self.indice
         }
 
@@ -122,12 +137,13 @@ class Tests:
                 #longitud:numero-tipoDeDato:string-obligatorio:si-unico:si
                 indicaciones = comentarios
 
-                #Establecer el mensaje esperado
-                for indicacion in indicaciones.split('-'):
-                    if indicacion.split(':')[0] == 'mensajeEsperado':
-                        mensajeEsperado=indicacion.split(':')[1]
-                    elif (indicacion.split(':')[0] == 'validador') & (indicacion.split(':')[1]):
-                        validador = True
+                if indicaciones != '':
+                    #Establecer el mensaje esperado
+                    for indicacion in indicaciones.split('-'):
+                        if indicacion.split(':')[0] == 'mensajeEsperado':
+                            mensajeEsperado=indicacion.split(':')[1]
+                        elif (indicacion.split(':')[0] == 'validador') & (indicacion.split(':')[1]=='si'):
+                            validador = True
 
                 targets = action['targets']
 
@@ -203,7 +219,7 @@ class Tests:
                                 tipoDeDato = valorIndicacion
                             case 'longitud':
                                 if valorIndicacion != 'indefinido':
-                                    longitud = valorIndicacion
+                                    longitud = int(valorIndicacion)
                             case 'obligatorio':
                                 if valorIndicacion == 'si':
                                     obligatorio = True
@@ -212,40 +228,20 @@ class Tests:
                                     unico = True
 
                     #Agregar accion
-                    detailedActions.append(TypingTemplate(value=valor,target=path, typePath=typePath, indice=indice, mensajeEsperado=mensajeEsperado,validador=validador ).createDetail(tipoDeDato,longitud,obligatorio,unico))
-
-                # #Si existen indicaciones para esta etiqueta, y es de tipo click, pasará por este statement
-                # elif (tipoDeAccion == 'click') & (indicaciones != ''):
-
-                #     #Por defecto establecemos que el validador es falso
-                #     validador = False
-
-                #     #Realizamos un recorrido por las indicaciones, son posibles las de validador y mensaje esperado
-                #     for clickIndicacion in indicaciones.split('-'):
-                #         splitIndicacion:list = clickIndicacion.split(':')
-                #         tipoIndicacion = splitIndicacion[0]
-                #         valorIndicacion = splitIndicacion[1]
-
-                #         #Hallamos la indicacion de validador
-                #         if (tipoIndicacion == 'validador') & (valorIndicacion == 'si'):
-                #             validador = True
-                        
-                #     detailedActions.append(ClickTemplate(valor,target=path,typePath=typePath, indice=indice, mensajeEsperado=mensajeEsperado).createDetail(validador))
+                    detailedActions.append(TypingTemplate(valor,path,typePath, indice,mensajeEsperado,validador ).createDetail(tipoDeDato,longitud,obligatorio,unico))
 
                 #Agregamos la rutina por default
-                actions.append(GeneralTemplate(value=valor,target=path,typePath=typePath, indice=indice, validador=validador).defaultDetail(tipoDeAccion=tipoDeAccion))
+                actions.append(GeneralTemplate(valor,path,typePath, indice,mensajeEsperado,validador).defaultDetail(tipoDeAccion=tipoDeAccion))
 
                 indice += 1
 
         self.detailActions:list = detailedActions
         self.routine:list = actions
-        self.tests:list = []
-        self.uniqueTests:list = []
+        self.detailedTests:list = []
 
     def createTests(self):
 
-        #Definir rutina default
-        routineTest:list = copy.copy(self.routine)
+        templateRoutine = [e for e in self.routine]
 
         #Definir el click validador
         for test in self.detailActions:
@@ -253,31 +249,60 @@ class Tests:
                 validador:bool = test["validador"]
                 i = test["indice"]
                 if validador:
-                    routineTest[i]["validador"] = validador
+                    templateRoutine[i]["validador"] = validador
 
-        #Definimos los tests
-        for test in self.detailActions:
+        for test2 in self.detailActions:
             
-            #Copiamos la rutina default anteriormente modificada
-            routineTest:list = copy.copy(routineTest)
+            routineTest = []
+            routineTest = copy.deepcopy(self.routine)
 
-            #Establecemos las variables por default
-            valor:str = test["value"]
-            target:str = test["target"]
-            typePath:str = test["typePath"]
-            tipoDeAccion:str = test["tipoDeAccion"]
-            indice:int = test["indice"]
+            indice = test2["indice"]
 
-            
+            tipoDeDato = test2["tipoDeDato"]
+            longitud = test2["longitud"]
+            obligatorio = test2["obligatorio"]
+            mensajeEsperado = test2["mensajeEsperado"]
+            unico = test2["unico"]
 
-            
-                    
+            tipoDeDatoRoutine = copy.deepcopy(routineTest)
+            longitudRoutine = copy.deepcopy(routineTest)
+            obligatorioRoutine = copy.deepcopy(routineTest)
 
-                    
+            cadenaRandom = str(uuid.uuid4())
 
 
+            rutinas = []
 
-test = Tests('Test.json')
+            if tipoDeDato == 'number':
+                cadenaRandom = str(uuid.uuid4())
+                tipoDeDatoRoutine[indice]["value"] = (cadenaRandom*4)[:longitud]
+                rutinas.append(tipoDeDatoRoutine)
+
+            if obligatorio:
+                obligatorioRoutine[indice]["value"] = ''
+                rutinas.append(obligatorioRoutine)
+
+            if tipoDeDato == 'string':
+                longitudRoutine[indice]["value"] =  (cadenaRandom*4)[:longitud+1]
+            elif tipoDeDato == 'number':
+                longitudRoutine[indice]["value"] = numberByLength(longitud+1)
+
+            rutinas.append(longitudRoutine)
+
+            for e in rutinas:
+                element = {
+                    "indice" : indice,
+                    "mensajeEsperado":mensajeEsperado,
+                    "acciones" : e
+                }
+
+                self.detailedTests.append(element)
+                
+
+
+test = Tests('testAcopio.json')
+test.createTests()
+print(test.detailedTests)
 # test.creaTests()
 
         # self.routine.append(actions)
