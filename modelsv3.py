@@ -237,7 +237,9 @@ class Tests:
 
         self.detailActions:list = detailedActions
         self.routine:list = actions
-        self.detailedTests:list = []
+        self.tipoDeDatoTests:list = []
+        self.obligatorioTests:list = []
+        self.longitudTests:list = []
 
     def createTests(self):
 
@@ -270,40 +272,34 @@ class Tests:
 
             cadenaRandom = str(uuid.uuid4())
 
-
-            rutinas = []
+            def detailedTest(indice:int, mensajeEsperado:str, rutina:list) -> dict:
+                return {
+                    "indice":indice,
+                    "mensajeEsperado":mensajeEsperado,
+                    "actions" : rutina
+                }
 
             if tipoDeDato == 'number':
                 cadenaRandom = str(uuid.uuid4())
                 tipoDeDatoRoutine[indice]["value"] = (cadenaRandom*4)[:longitud]
-                rutinas.append(tipoDeDatoRoutine)
+
+                self.tipoDeDatoTests.append(detailedTest(indice,mensajeEsperado,tipoDeDatoRoutine))
 
             if obligatorio:
                 obligatorioRoutine[indice]["value"] = ''
-                rutinas.append(obligatorioRoutine)
+                self.obligatorioTests.append(detailedTest(indice,mensajeEsperado,obligatorioRoutine))
 
             if tipoDeDato == 'string':
                 longitudRoutine[indice]["value"] =  (cadenaRandom*4)[:longitud+1]
             elif tipoDeDato == 'number':
                 longitudRoutine[indice]["value"] = numberByLength(longitud+1)
 
-            rutinas.append(longitudRoutine)
-
-            for e in rutinas:
-                element = {
-                    "indice" : indice,
-                    "mensajeEsperado":mensajeEsperado,
-                    "acciones" : e
-                }
-
-                self.detailedTests.append(element)
-                
-
+            self.longitudTests.append(detailedTest(indice,mensajeEsperado,longitudRoutine))
 
 test = Tests('testAcopio.json')
 test.createTests()
-print(test.detailedTests)
-# test.creaTests()
+test.obligatorioTests
+
 
         # self.routine.append(actions)
         # self.testRoutines = []
