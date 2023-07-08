@@ -12,11 +12,10 @@ class Navigator(webdriver.Remote, By):
     def __init__(self, command_executor="http://127.0.0.1:4444", keep_alive=True, file_detector=None, options: BaseOptions | List[BaseOptions] = None) -> None:
         super().__init__(command_executor, keep_alive, file_detector, options)
 
-    def initialArguments(self, rutinaIniciarSession:list, listaDeTests:list, targetURL:str):
+    def initialArguments(self, rutinaIniciarSession:list, targetURL:str):
 
         self.targetURL:str = targetURL
         self.rutinaIniciarSession:list = rutinaIniciarSession
-        self.listaDeTests:list = listaDeTests
         self.sucesos:list = []
 
     def registrarSuceso(self, rutina:list, accion:dict, indice:int,tipoDeError:str):
@@ -46,3 +45,86 @@ class Navigator(webdriver.Remote, By):
 
     def typingAction(self, content):
         self.element.send_keys(content)
+
+    def clickAction(self, validador:bool, mensajeEsperado:str):
+        self.element.click()
+        if validador:
+            mensajes:list = mensajeEsperado.split('|')
+
+            for m in mensajes:
+                try:
+                    assert m in self.page_source
+                except AssertionError:
+                    self.registrarSuceso()
+
+
+    def defaultExecuteRoutine(self, testRoutine:dict):
+
+        actions = testRoutine['actions']
+
+        for action in actions:
+
+            path = action["target"]
+            typePath = action['typeTarget']
+            
+            if typePath == 'css':
+                self.selectElementByCssSelector(path)
+            else:
+                self.selectElementByXPATH(path)
+
+            match action["action"]:
+                case 'type':
+                    content = action["value"]
+                    self.element.send_keys(content)
+                case 'click':
+                    self.element.click()
+
+    def executeRoutine(self, test:dict):
+        
+        mensajeEsperado = test["mensajeEsperado"]
+        indice = test["indice"]
+        rutina = test["actions"]
+
+        for action in rutina:
+
+            path = action["target"]
+            typePath = action["typePath"]
+
+            if typePath == 'css':
+                self.selectElementByCssSelector(path)
+            else:
+                self.selectElementByXPATH(path)
+
+            #Hace una comparacion del tipo de accion
+            match action["tipoDeAccion"]:
+
+                #Si la accion es de tipear, ejecuta una accion de tipear
+                case 'type':
+                    content = action["value"]
+                    self.typingAction(content=content)
+
+                case 'click':
+                    try:
+                        validador:bool = test["validador"]
+                        self.clickAction(validador, mensajeEsperado)
+
+                    except AssertionError:
+                        self.registrarSuceso(rutina, action, indice, 'No se encontró mensaje de aviso')
+                        break
+
+        #Volvemos al inicio
+        self.get(self.targetURL)
+
+    def initSession(self):
+        self.get(self.targetURL)
+        self.set_window_size(height=1000, width=1300)
+        self.defaultExecuteRoutine(self.rutinaIniciarSession)
+
+
+
+
+
+from modelsv3 import Tests
+test = Tests('testAcopio.json')
+
+testsObligatorios = test.obligatorioTests

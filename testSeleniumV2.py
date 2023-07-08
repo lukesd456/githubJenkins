@@ -51,27 +51,34 @@ class Navigator(webdriver.Remote, By):
 
     def clickAction(self, validador:str):
         
+        #Ejecuta click en el elemento seleccionado
         self.element.click()
 
+        #Copia de errores
         listaErrores:list = copy.copy(self.erroresEsperados)
 
-        print(len(listaErrores))
-
-        print(validador)
-
+        #Si el click es validador, entonces ejecuta la comprobacion de los errores esperados
         if validador == 'validador':
+
+            #Realiza un recorrido por cada error que se encuentre almacenado
             for e in self.erroresEsperados:
                 try:
-                    print(e)
+                    
+                    #Revisa en el codigo fuente de la pagina y busca el mensaje de comprobacion
                     assert e in self.page_source
+
+                    #Remueve el mensaje de error
                     listaErrores.remove(e)
                 except AssertionError:
+                    
+                    #Para evitar que lance error si no encuentra el error esperado
                     print('Hay Error')            
 
-            if len(listaErrores) == 0:
-                print('Se ha cumplido con la restriccion')
+            if len(listaErrores) != 0:
+                print('No se ha cumplido con la restriccion')
                 raise AssertionError
 
+    #Ejecucion de rutina sin validacion de datos
     def defaultExecuteRoutine(self, routine:list):
 
         for action in routine:
@@ -123,6 +130,8 @@ class Navigator(webdriver.Remote, By):
                         validador = action['typeTest']
                         self.clickAction(validador=validador)
                     except AssertionError:
+                        #Se activa cada vez que no se encuentra el mensaje de verificacion ante datos erroneos
+                        self.registrarSuceso(routine, action, indice=indiceAccion, tipoDeError='No se encontró mensaje de error')                        
                         break
                 
         #Termina la rutina y vuelve a la pagina de inicio

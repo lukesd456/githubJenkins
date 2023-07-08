@@ -1,9 +1,3 @@
-a = 'holamundo'
+a = 'golas'
 
-try:
-    assert 'holamundo' in a
-    # raise AssertionError
-except AssertionError:
-    print('hubo error')
-finally:
-    print('setermino')
+print(a.split('s'))
