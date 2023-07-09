@@ -54,13 +54,22 @@ class Navigator(webdriver.Remote, By):
             for m in mensajes:
                 try:
                     assert m in self.page_source
+
+                    mensajes.remove(m)
                 except AssertionError:
-                    self.registrarSuceso()
+                    print('aviso no encontrado')
+
+            
+            if len(mensajes) != 0:
+                print('No se ha cumplido con la restriccion')
+                raise AssertionError
+
+            
 
 
-    def defaultExecuteRoutine(self, testRoutine:dict):
+    def defaultExecuteRoutine(self, testRoutine:list):
 
-        actions = testRoutine['actions']
+        actions = testRoutine
 
         for action in actions:
 
@@ -79,13 +88,20 @@ class Navigator(webdriver.Remote, By):
                 case 'click':
                     self.element.click()
 
+
+    #Ejecutar esto para cada test que se encuentre en el array
     def executeRoutine(self, test:dict):
         
         mensajeEsperado = test["mensajeEsperado"]
         indice = test["indice"]
         rutina = test["actions"]
+        tipoDeTest = test["tipoDeTest"]
+
+        self.implicitly_wait(10)
 
         for action in rutina:
+
+            print(action)
 
             path = action["target"]
             typePath = action["typePath"]
@@ -105,11 +121,11 @@ class Navigator(webdriver.Remote, By):
 
                 case 'click':
                     try:
-                        validador:bool = test["validador"]
+                        validador:bool = action["validador"]
                         self.clickAction(validador, mensajeEsperado)
 
                     except AssertionError:
-                        self.registrarSuceso(rutina, action, indice, 'No se encontró mensaje de aviso')
+                        self.registrarSuceso(rutina, action, indice, tipoDeTest)
                         break
 
         #Volvemos al inicio
@@ -120,11 +136,5 @@ class Navigator(webdriver.Remote, By):
         self.set_window_size(height=1000, width=1300)
         self.defaultExecuteRoutine(self.rutinaIniciarSession)
 
-
-
-
-
-from modelsv3 import Tests
-test = Tests('testAcopio.json')
-
-testsObligatorios = test.obligatorioTests
+        # for a in self.rutinaIniciarSession:
+        #     self.defaultExecuteRoutine(a)

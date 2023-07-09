@@ -1,0 +1,72 @@
+{
+  "id": "4d7a6833-e44d-4bc6-a037-817d30a3ee64",
+  "version": "2.0",
+  "name": "test3",
+  "url": "https://id-panel-stage.agros.tech",
+  "tests": [{
+    "id": "2725a31a-aeaa-48c6-a220-00185e507fe9",
+    "name": "Untitled",
+    "commands": [{
+      "id": "bbba7685-eaf2-4963-98c0-33c933d432bc",
+      "comment": "",
+      "command": "click",
+      "target": "css=.MuiButton-root:nth-child(2)",
+      "targets": [
+        ["css=.MuiButton-root:nth-child(2)", "css:finder"],
+        ["xpath=(//button[@type='button'])[4]", "xpath:attributes"],
+        ["xpath=//div[@id='root']/main/div/div[2]/div/div/div[3]/div/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Nuevo centro de acopio')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "731c2555-54ed-4931-8fbd-ee7bdb77e91e",
+      "comment": "",
+      "command": "click",
+      "target": "id=ruc",
+      "targets": [
+        ["id=ruc", "id"],
+        ["name=ruc", "name"],
+        ["css=#ruc", "css:finder"],
+        ["xpath=//input[@id='ruc']", "xpath:attributes"],
+        ["xpath=//div[3]/div/div/div/div/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6a70720f-291e-43a5-8b19-00221c1d9f53",
+      "comment": "tipoDeDato:number-longitud:13-obligatorio:si-errorEsperado:Campo Requerido",
+      "command": "type",
+      "target": "id=ruc",
+      "targets": [
+        ["id=ruc", "id"],
+        ["name=ruc", "name"],
+        ["css=#ruc", "css:finder"],
+        ["xpath=//input[@id='ruc']", "xpath:attributes"],
+        ["xpath=//div[3]/div/div/div/div/div/div/input", "xpath:position"]
+      ],
+      "value": "10731726421"
+    }, {
+      "id": "ed4ea8ee-00e5-48f1-ad3d-9c07932f97e6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.css-vswc2n",
+      "targets": [
+        ["css=.css-vswc2n", "css:finder"],
+        ["xpath=(//button[@type='button'])[44]", "xpath:attributes"],
+        ["xpath=//div[3]/div/div[2]/div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Registrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "58fd81f3-87f1-4042-9cf4-9a46148baa63",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["2725a31a-aeaa-48c6-a220-00185e507fe9"]
+  }],
+  "urls": ["https://id-panel-stage.agros.tech/"],
+  "plugins": []
+}

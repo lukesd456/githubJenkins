@@ -272,37 +272,33 @@ class Tests:
 
             cadenaRandom = str(uuid.uuid4())
 
-            def detailedTest(indice:int, mensajeEsperado:str, rutina:list) -> dict:
+            def detailedTest(indice:int, mensajeEsperado:str, rutina:list, tipoDeTest:str) -> dict:
                 return {
                     "indice":indice,
                     "mensajeEsperado":mensajeEsperado,
-                    "actions" : rutina
+                    "actions" : rutina,
+                    "tipoDeTest" : tipoDeTest
                 }
 
             if tipoDeDato == 'number':
                 cadenaRandom = str(uuid.uuid4())
                 tipoDeDatoRoutine[indice]["value"] = (cadenaRandom*4)[:longitud]
 
-                self.tipoDeDatoTests.append(detailedTest(indice,mensajeEsperado,tipoDeDatoRoutine))
+                self.tipoDeDatoTests.append(detailedTest(indice,mensajeEsperado,tipoDeDatoRoutine, 'tipoDeDato'))
 
             if obligatorio:
                 obligatorioRoutine[indice]["value"] = ''
-                self.obligatorioTests.append(detailedTest(indice,mensajeEsperado,obligatorioRoutine))
+                self.obligatorioTests.append(detailedTest(indice,mensajeEsperado,obligatorioRoutine, 'tipoDeDato'))
 
             if tipoDeDato == 'string':
                 longitudRoutine[indice]["value"] =  (cadenaRandom*4)[:longitud+1]
             elif tipoDeDato == 'number':
                 longitudRoutine[indice]["value"] = numberByLength(longitud+1)
 
-            self.longitudTests.append(detailedTest(indice,mensajeEsperado,longitudRoutine))
+            self.longitudTests.append(detailedTest(indice,mensajeEsperado,longitudRoutine, 'longitud'))
 
-test = Tests('testAcopio.json')
-test.createTests()
-test.obligatorioTests
+# test = Tests('testAcopio.json')
+# test.createTests()
+# test.obligatorioTests
 
-
-        # self.routine.append(actions)
-        # self.testRoutines = []
-        # self.erroresEsperados = []
-
-# test = Tests('FrankRecord.json')
+test = Tests('FrankRecord.json')

@@ -16,7 +16,7 @@ drivers = [
 ]
 
 credenciales = JsonRoutine('FrankRecordIniciarSesion.json')
-test = Tests('FrankRecord.json')
+test = Tests('test3.json')
 test.createTests()
 
 testObligatorios:list = test.obligatorioTests

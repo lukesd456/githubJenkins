@@ -24,7 +24,6 @@
       "target": "css=.MuiButton-root",
       "targets": [
         ["css=.MuiButton-root", "css:finder"],
-        ["xpath=(//button[@type='button'])[3]", "xpath:attributes"],
         ["xpath=//div[@id='root']/main/div/div[2]/div/div/div[3]/div/div/button", "xpath:idRelative"],
         ["xpath=//div[3]/div/div/button", "xpath:position"],
         ["xpath=//button[contains(.,'Nuevo centro de acopio')]", "xpath:innerText"]
@@ -84,7 +83,7 @@
       "value": "DIRECCIONQA"
     }, {
       "id": "8b1716f5-360e-4474-be4a-a9c120092afa",
-      "comment": "validador",
+      "comment": "validador:si",
       "command": "click",
       "target": "css=.css-vswc2n",
       "targets": [

@@ -19,7 +19,7 @@
         ["xpath=//div[@id='root']/main/div/div[2]/div/div/form/div/div/div/input", "xpath:idRelative"],
         ["xpath=//input", "xpath:position"]
       ],
-      "value": "achorres_sinergia"
+      "value": "qa_user"
     }, {
       "id": "4d95f6ef-e3bf-41a2-b2c9-5b1909930196",
       "comment": "",
@@ -33,7 +33,7 @@
         ["xpath=//div[@id='root']/main/div/div[2]/div/div/form/div[2]/div/div/input", "xpath:idRelative"],
         ["xpath=//div[2]/div/div/input", "xpath:position"]
       ],
-      "value": "agROS_123!!"
+      "value": "agROS_2023"
     }, {
       "id": "57a85b1b-daee-47bc-9f75-0ef1959fe9ae",
       "comment": "",

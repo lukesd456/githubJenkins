@@ -30,7 +30,7 @@
       "value": ""
     }, {
       "id": "2b6f5e36-4d39-4be4-814f-a1617753727d",
-      "comment": "tipoDeDato:number-longitud:13-obligatorio:no-errorEsperado:Campo requerido",
+      "comment": "tipoDeDato:number-longitud:13-obligatorio:no-errorEsperado:Campo requerido|El RUC debe tener 11",
       "command": "type",
       "target": "id=ruc",
       "targets": [
