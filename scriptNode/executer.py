@@ -19,7 +19,7 @@ def executeScript(path:str, driver) -> list:
     with open(path, "r") as file:
         jsonData = json.load(file)
 
-    result = Navigator(command_executor=driver)
+    result = Navigator(command_executor=webdriver_url, options=driver)
     result.initialArguments(jsonData)
     result.executeRoutine()
 

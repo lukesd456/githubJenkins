@@ -81,28 +81,33 @@ class Navigator(webdriver.Remote, By):
 
                 action:dict
 
-                typeTarget:str = action["typeTarget"]
-                location:str = action["location"]
-                
-                value:str = action["value"]
-                validador:bool = action["validador"]
                 command:str = action["command"]
 
-                #Seleccionar elemento:
-                match typeTarget:
-                    case 'xpath':
-                        self.selectElementByXPATH(location)
-                    case 'css':
-                        self.selectElementByCssSelector(location)
+                if (command == 'type') | (command == 'click'): 
+                    
+                    typeTarget:str = action["typeTarget"]
 
-                #Realizar accion:
-                match command:
-                    case 'type':
-                        self.sendKeys(value)
-                    case 'click':
-                        try:
-                            self.clickAction(validador,mensajeEsperado)
-                        except AssertionError:
-                            self.registrarSuceso(tipoDeTest, indice,)
+                    location:str = action["location"]
+                    
+                    value:str = action["value"]
+                    validador:bool = action["validador"]
+
+
+                    #Seleccionar elemento:
+                    match typeTarget:
+                        case 'xpath':
+                            self.selectElementByXPATH(location)
+                        case 'css':
+                            self.selectElementByCssSelector(location)
+
+                    #Realizar accion:
+                    match command:
+                        case 'type':
+                            self.sendKeys(value)
+                        case 'click':
+                            try:
+                                self.clickAction(validador,mensajeEsperado)
+                            except AssertionError:
+                                self.registrarSuceso(tipoDeTest, indice,)
 
             self.close()
