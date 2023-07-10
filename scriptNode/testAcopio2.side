@@ -123,7 +123,7 @@
       "value": ""
     }, {
       "id": "9ed0e245-5825-4649-8df2-da442c38ad8b",
-      "comment": "tipoDeDato:number-longitud:11-obligatorio:si-unico:no-mensajeEsperado:Campo requerido.|El RUC debe tener 11 dígitos.",
+      "comment": "numero-longitud:11-obligatorio-mensajesEsperados:Campo requerido.|El RUC debe tener 11 dígitos.",
       "command": "type",
       "target": "id=ruc",
       "targets": [
@@ -136,7 +136,7 @@
       "value": "10731726421"
     }, {
       "id": "943c694d-cd3d-47fe-8e1d-9973f5618709",
-      "comment": "tipoDeDato:string-longitud:indefinida-obligatorio:si-unico:no-mensajeEsperado:Campo requerido.",
+      "comment": "string-longitud:indefinida-obligatorio-mensajesEsperados:Campo requerido.",
       "command": "type",
       "target": "id=business_name",
       "targets": [
@@ -149,7 +149,7 @@
       "value": "testQA"
     }, {
       "id": "6dbe6f11-7d25-486c-b1bd-c458b6d62713",
-      "comment": "tipoDeDato:string-longitud:indefinida-obligatorio:si-unico:no-mensajeEsperado:Campo requerido.",
+      "comment": "string-longitud:indefinida-obligatorio-mensajesEsperados:Campo requerido.",
       "command": "type",
       "target": "id=name",
       "targets": [
@@ -231,7 +231,7 @@
       "value": ""
     }, {
       "id": "7f499980-5a3b-40fc-bf1f-001e45c8d618",
-      "comment": "tipoDeDato:string-longitud:indefinida-obligatorio:si-unico:no-mensajeEsperado:Campo requerido.",
+      "comment": "string-longitud:indefinida-obligatorio-mensajesEsperados:Campo requerido.",
       "command": "type",
       "target": "id=address",
       "targets": [
