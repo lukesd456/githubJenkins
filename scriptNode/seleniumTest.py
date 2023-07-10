@@ -109,5 +109,6 @@ class Navigator(webdriver.Remote, By):
                                 self.clickAction(validador,mensajeEsperado)
                             except AssertionError:
                                 self.registrarSuceso(tipoDeTest, indice,)
+                                break
 
             self.close()

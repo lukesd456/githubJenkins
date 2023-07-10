@@ -1,0 +1,280 @@
+{
+  "id": "f725c738-dfa0-4a6f-b114-da802b43657d",
+  "version": "2.0",
+  "name": "test",
+  "url": "https://id-panel-stage.agros.tech",
+  "tests": [{
+    "id": "1028eb91-3c6e-45c4-a3ff-eeffe91e41ec",
+    "name": "test",
+    "commands": [{
+      "id": "926ea909-bc42-4e21-8fb6-6e1bdf885db5",
+      "comment": "",
+      "command": "type",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/main/div/div[2]/div/div/form/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "qa_user"
+    }, {
+      "id": "c5265df0-8b96-42d8-9dc9-0e0cb541fc16",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/main/div/div[2]/div/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "agROS_2023"
+    }, {
+      "id": "d2ed109c-df4b-4d5f-86cb-3b2fcf29be16",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//div[@id='root']/main/div/div[2]/div/div/div[2]/div/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Ingresar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "18c02845-6448-4bf9-978e-72900c38c6ea",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//div[@id='root']/main/div/div[2]/div/div/div[2]/div/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Ingresar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "19be1db1-c7ce-4ca1-991b-59c61c6b6b14",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//div[@id='root']/main/div/div[2]/div/div/div[2]/div/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Ingresar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b87493f0-7194-4b4f-8b71-325513413f86",
+      "comment": "",
+      "command": "click",
+      "target": "css=.MuiList-root:nth-child(3) > .MuiButtonBase-root:nth-child(3)",
+      "targets": [
+        ["css=.MuiList-root:nth-child(3) > .MuiButtonBase-root:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='root']/main/div/div/div/div/div/div/div/div[2]/div/div/div/div[3]/ul[3]/a[2]", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/dashboard/gather')]", "xpath:href"],
+        ["xpath=//ul[3]/a[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0b9ff0b2-d0a5-4221-8b8a-c5d9555753d3",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.MuiButton-root:nth-child(2)",
+      "targets": [
+        ["css=.MuiButton-root:nth-child(2)", "css:finder"],
+        ["xpath=(//button[@type='button'])[4]", "xpath:attributes"],
+        ["xpath=//div[@id='root']/main/div/div[2]/div/div/div[3]/div/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Nuevo centro de acopio')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8bd041e8-e1a7-49c5-8984-0654a5fe7d6c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.MuiButton-root:nth-child(2)",
+      "targets": [
+        ["css=.MuiButton-root:nth-child(2)", "css:finder"],
+        ["xpath=(//button[@type='button'])[4]", "xpath:attributes"],
+        ["xpath=//div[@id='root']/main/div/div[2]/div/div/div[3]/div/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Nuevo centro de acopio')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6434af05-5d41-47e6-9193-2daa09fac924",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.MuiButton-root:nth-child(2)",
+      "targets": [
+        ["css=.MuiButton-root:nth-child(2)", "css:finder"],
+        ["xpath=(//button[@type='button'])[4]", "xpath:attributes"],
+        ["xpath=//div[@id='root']/main/div/div[2]/div/div/div[3]/div/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Nuevo centro de acopio')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9ed0e245-5825-4649-8df2-da442c38ad8b",
+      "comment": "tipoDeDato:number-longitud:11-obligatorio:si-unico:no-mensajeEsperado:Campo requerido.|El RUC debe tener 11 dígitos.",
+      "command": "type",
+      "target": "id=ruc",
+      "targets": [
+        ["id=ruc", "id"],
+        ["name=ruc", "name"],
+        ["css=#ruc", "css:finder"],
+        ["xpath=//input[@id='ruc']", "xpath:attributes"],
+        ["xpath=//div[3]/div/div/div/div/div/div/input", "xpath:position"]
+      ],
+      "value": "10731726421"
+    }, {
+      "id": "943c694d-cd3d-47fe-8e1d-9973f5618709",
+      "comment": "tipoDeDato:string-longitud:indefinida-obligatorio:si-unico:no-mensajeEsperado:Campo requerido.",
+      "command": "type",
+      "target": "id=business_name",
+      "targets": [
+        ["id=business_name", "id"],
+        ["name=business_name", "name"],
+        ["css=#business_name", "css:finder"],
+        ["xpath=//input[@id='business_name']", "xpath:attributes"],
+        ["xpath=//div[3]/div/div/div/div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "testQA"
+    }, {
+      "id": "6dbe6f11-7d25-486c-b1bd-c458b6d62713",
+      "comment": "tipoDeDato:string-longitud:indefinida-obligatorio:si-unico:no-mensajeEsperado:Campo requerido.",
+      "command": "type",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["name=name", "name"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//div[3]/div/div/input", "xpath:position"]
+      ],
+      "value": "NOMBREQA"
+    }, {
+      "id": "d494caae-d4d4-491a-a1b6-2251b0c0e91d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.MuiGrid-root:nth-child(4) > .MuiFormGroup-root .MuiSvgIcon-root",
+      "targets": [
+        ["css=.MuiGrid-root:nth-child(4) > .MuiFormGroup-root .MuiSvgIcon-root", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "7a66f257-bfb9-42f5-91c2-2970aa9c11e1",
+      "comment": "",
+      "command": "click",
+      "target": "id=department_id-option-0",
+      "targets": [
+        ["id=department_id-option-0", "id"],
+        ["css=#department_id-option-0", "css:finder"],
+        ["xpath=//li[@id='department_id-option-0']", "xpath:attributes"],
+        ["xpath=//ul[@id='department_id-listbox']/li", "xpath:idRelative"],
+        ["xpath=//div[3]/div/ul/li", "xpath:position"],
+        ["xpath=//li[contains(.,'Amazonas')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bf73b9fb-f32b-4301-aadb-66e88b265ae4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.MuiGrid-root:nth-child(5) .MuiSvgIcon-root",
+      "targets": [
+        ["css=.MuiGrid-root:nth-child(5) .MuiSvgIcon-root", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "f3ba8d65-9f0a-41f6-b4b0-79d0c6a7ccb4",
+      "comment": "",
+      "command": "click",
+      "target": "id=province_id-option-1",
+      "targets": [
+        ["id=province_id-option-1", "id"],
+        ["css=#province_id-option-1", "css:finder"],
+        ["xpath=//li[@id='province_id-option-1']", "xpath:attributes"],
+        ["xpath=//ul[@id='province_id-listbox']/li[2]", "xpath:idRelative"],
+        ["xpath=//ul/li[2]", "xpath:position"],
+        ["xpath=//li[contains(.,'Bongará')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "44cb4663-0b8f-41e7-a249-e51cf9913f0b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.MuiAutocomplete-popupIndicator:nth-child(1) > .MuiSvgIcon-root",
+      "targets": [
+        ["css=.MuiAutocomplete-popupIndicator:nth-child(1) > .MuiSvgIcon-root", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "76a6966d-d215-44e5-ac3b-e6aa9b071ec0",
+      "comment": "",
+      "command": "click",
+      "target": "id=district_id-option-7",
+      "targets": [
+        ["id=district_id-option-7", "id"],
+        ["css=#district_id-option-7", "css:finder"],
+        ["xpath=//li[@id='district_id-option-7']", "xpath:attributes"],
+        ["xpath=//ul[@id='district_id-listbox']/li[8]", "xpath:idRelative"],
+        ["xpath=//li[8]", "xpath:position"],
+        ["xpath=//li[contains(.,'Florida')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7f499980-5a3b-40fc-bf1f-001e45c8d618",
+      "comment": "tipoDeDato:string-longitud:indefinida-obligatorio:si-unico:no-mensajeEsperado:Campo requerido.",
+      "command": "type",
+      "target": "id=address",
+      "targets": [
+        ["id=address", "id"],
+        ["name=address", "name"],
+        ["css=#address", "css:finder"],
+        ["xpath=//input[@id='address']", "xpath:attributes"],
+        ["xpath=//div[7]/div/div/input", "xpath:position"]
+      ],
+      "value": "DIRECCIONQA"
+    }, {
+      "id": "7928de0c-ad33-4772-83c9-ac9406c39004",
+      "comment": "",
+      "command": "click",
+      "target": "css=.css-vswc2n",
+      "targets": [
+        ["css=.css-vswc2n", "css:finder"],
+        ["xpath=(//button[@type='button'])[47]", "xpath:attributes"],
+        ["xpath=//div[3]/div/div[2]/div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Registrar')]", "xpath:innerText"]
+      ],
+      "value": "validador:si"
+    }, {
+      "id": "e2ab8ab9-d241-406e-b682-448ebb9e209b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal-button",
+      "targets": [
+        ["css=.swal-button", "css:finder"],
+        ["xpath=//div[3]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'OK')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "1a815af3-4d8e-4ffa-bbae-7002ab0519c0",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["1028eb91-3c6e-45c4-a3ff-eeffe91e41ec"]
+  }],
+  "urls": ["https://id-panel-stage.agros.tech/"],
+  "plugins": []
+}
