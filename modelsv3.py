@@ -175,7 +175,7 @@ class Tests:
                                     break
                                 case 'attributes':
                                     break
-                                case 'position':
+                                case 'attributes':
                                     break
                         # else:
                         #     path = path.split('css=')[1]

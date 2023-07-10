@@ -48,7 +48,7 @@
       "value": ""
     }, {
       "id": "7266ff34-0c14-4148-a606-60f6a28102d7",
-      "comment": "tipoDeDato:number-longitud:indefinida-obligatorio:si-unico:no",
+      "comment": "tipoDeDato:number-longitud:indefinida-obligatorio:si-unico:no-mensajeEsperado:Campo Requerido",
       "command": "type",
       "target": "id=ruc",
       "targets": [
@@ -74,7 +74,7 @@
       "value": ""
     }, {
       "id": "578a424f-d9f6-4e6e-a321-c6f7cda3cfa0",
-      "comment": "tipoDeDato:string-longitud:indefinida-obligatorio:si-unico:no",
+      "comment": "tipoDeDato:string-longitud:indefinida-obligatorio:si-unico:no-mensajeEsperado:Campo Requerido",
       "command": "type",
       "target": "id=business_name",
       "targets": [
@@ -118,7 +118,7 @@
       "value": ""
     }, {
       "id": "f98679ba-db16-4d6a-8617-3b1454290283",
-      "comment": "tipoDeDato:string-longitud:indefinida-obligatorio:si-unico:no",
+      "comment": "tipoDeDato:string-longitud:indefinida-obligatorio:si-unico:no-mensajeEsperado:Campo Requerido",
       "command": "type",
       "target": "id=name",
       "targets": [
@@ -249,7 +249,7 @@
       "value": ""
     }, {
       "id": "be5b1bbd-51a7-4934-ba83-27f48eddec0c",
-      "comment": "tipoDeDato:string-longitud:indefinida-obligatorio:si-unico:no",
+      "comment": "tipoDeDato:string-longitud:indefinida-obligatorio:si-unico:no-mensajeEsperado:Campo Requerido",
       "command": "type",
       "target": "id=address",
       "targets": [

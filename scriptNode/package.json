@@ -1,5 +1,5 @@
 {
-  "name": "githubjenkins",
+  "name": "scriptnode",
   "version": "1.0.0",
   "description": "",
   "main": "modelsv5.js",
@@ -7,5 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "uuid": "^9.0.0"
+  }
 }
