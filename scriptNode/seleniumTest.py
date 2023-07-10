@@ -84,7 +84,7 @@ class Navigator(webdriver.Remote, By):
                 command:str = action["command"]
 
                 if (command == 'type') | (command == 'click'): 
-                    
+
                     typeTarget:str = action["typeTarget"]
 
                     location:str = action["location"]
@@ -103,7 +103,7 @@ class Navigator(webdriver.Remote, By):
                     #Realizar accion:
                     match command:
                         case 'type':
-                            self.sendKeys(value)
+                            self.element.send_keys(value)
                         case 'click':
                             try:
                                 self.clickAction(validador,mensajeEsperado)

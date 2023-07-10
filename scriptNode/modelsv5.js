@@ -29,11 +29,12 @@ const generarNumeroAleatorio = (longitud) => {
 
 const filterTests = (rutina, indice, value, tipoDeTest,mensajeEsperado) => {
 
-    rutina[indice].value = value
+    let copyRoutine = rutina
+    copyRoutine[indice].value = value
     console.log(mensajeEsperado)
 
     return {
-        rutina,
+        rutina:copyRoutine,
         indice,
         tipoDeTest,
         mensajeEsperado: mensajeEsperado
@@ -194,4 +195,4 @@ const createTests = async (path) => {
 
 }
 
-createTests('./testAcopio.side')
+createTests('./testAcopio2.side')
